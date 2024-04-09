@@ -14,8 +14,8 @@ parser=argparse.ArgumentParser(description="script")
 
 # Options
 parser.add_argument("URL",help="Youtube playlist URL")
-parser.add_argument('-b','--before',type=int,help="Search before year")
 parser.add_argument('-a','--after',type=int,help="Search after year")
+parser.add_argument('-b','--before',type=int,help="Search before year")
 parser.add_argument('-w','--write',type=str,help="write to a file")
 args=parser.parse_args()  
 
@@ -29,31 +29,27 @@ if args.write:
 # Get playlist
 playlist=Pl(args.URL)
 
-# Search function
-def searchWM(URL):
-    
-    # URL search on Wayback Machine
-    
-    
-    return snapshots
-
-
+#Iterate on all videos
 for i,url in zip(range(1,len(list(playlist.video_urls))),playlist.video_urls):
-    cdx=Cdx(url=url,user_agent=user_agent,start_timestamp=before,end_timestamp=after)
+    cdx=Cdx(url=url,user_agent=user_agent,start_timestamp=after,end_timestamp=before)
     if args.write:
             file.write(str(i))
-            file.write(cdx.url)
+            file.write(url)
             file.write("\n")
-    print(i,cdx.url)
-    snapshots=cdx.snapshots()
-    for j,s in zip(range(1,len(list(snapshots))),snapshots):
-        if args.write:
-            file.write(str(j))
-            file.write(s.archive_url)
-            file.write("\n")
-        print("\t",j,s.archive_url)
-
+    print(i,".",url)
+    
+    try:
+        snapshot_list=cdx.snapshots()
+    except:
+        pass
+    c=1
+    for s in snapshot_list:
+            if args.write:
+                file.write(str(s))
+                file.write(s.archive_url)
+                file.write("\n")
+            print("\t",c,".",s.archive_url)
+            c=c+1
+    time.sleep(10) #Waiting time because of request limit
 if args.write:
     file.close()
-
-
