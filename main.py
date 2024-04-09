@@ -33,9 +33,7 @@ playlist=Pl(args.URL)
 for i,url in zip(range(1,len(list(playlist.video_urls))),playlist.video_urls):
     cdx=Cdx(url=url,user_agent=user_agent,start_timestamp=after,end_timestamp=before)
     if args.write:
-            file.write(str(i))
-            file.write(url)
-            file.write("\n")
+            file.write(str(i)+"."+url+"\n")
     print(i,".",url)
     
     try:
@@ -45,11 +43,9 @@ for i,url in zip(range(1,len(list(playlist.video_urls))),playlist.video_urls):
     c=1
     for s in snapshot_list:
             if args.write:
-                file.write(str(s))
-                file.write(s.archive_url)
-                file.write("\n")
+                file.write("\t"+str(c)+"."+s.archive_url+"\n")
             print("\t",c,".",s.archive_url)
             c=c+1
-    time.sleep(10) #Waiting time because of request limit
+    time.sleep(8) #Waiting time because of request limit
 if args.write:
     file.close()
