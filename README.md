@@ -5,13 +5,13 @@ Ce script recense l'existence d'archive de vidéos Youtube dans une playlist gr�
 ## Utilisation
 
 ```
-usage: python main.py [-h] [-a AFTER] [-b BEFORE] [-w WRITE] URL
+usage: python main.py [-h] [-a AFTER] [-b BEFORE] [-w WRITE | -S SEARCH] URL
 ```
+
 Tapez 
 ```python main.py -h```
 pour plus d'informations.
 
 ## A faire
 
-Ajouter un mode "recherche" : Cherche l'existence d'une chaîne de caractères (en l'occurence le titre d'une vidéo par exemple) 
-parmi les archives
+Plus rien à faire

@@ -22,7 +22,7 @@ parser.add_argument('-a','--after',type=int,help="Search after year")
 parser.add_argument('-b','--before',type=int,help="Search before year")
 parser.add_argument('-w','--write',type=str,help="write to a file")
 parser.add_argument('-d','--delay',type=str,help="delay while fetching snapshots (8 seconds if not entered)")
-parser.add_argument('-S','--search',type=str,help="Use script in search mode (WARNING : this may take a lot of time!)")
+parser.add_argument('-S','--search',type=str,help="Find string in archive (WARNING : this may take a lot of time!)")
 args=parser.parse_args()
 
 if args.before:
