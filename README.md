@@ -5,7 +5,7 @@ Ce script recense l'existence d'archive de vid√©os Youtube dans une playlist gr√
 ## Utilisation
 
 ```
-usage: python main.py [-h] [-a AFTER] [-b BEFORE] [-w WRITE | -S SEARCH] URL
+usage: python main.py [-h] [-a AFTER] [-b BEFORE] [-s SKIP] [-w WRITE | -S SEARCH]  URL
 ```
 
 Tapez 
